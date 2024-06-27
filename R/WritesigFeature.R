@@ -36,7 +36,7 @@ WritesigFeature <-  function(results, x,  fileName="Result"){
                 TrainSampleLabels=results[[i]]$train.data.level,
                 TestSampleID=results[[i]]$test.data.ids,
                 TestSampleLabels=results[[i]]$test.data.level )
-        n <- max(unlist(apply(l, length)))
+        n <- max(unlist(lapply(l, length)))
         ll <- lapply(l, function(X) {c(as.character(X),
                 rep("", times = n - length(X)))})
         out <- do.call(cbind, ll)
